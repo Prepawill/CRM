@@ -55,7 +55,7 @@ app.get('/delete', function (req, res) {
 });
 
 
-
-app.listen(8080, function () {
-  console.log("Server listening on port 8080");
+var port = (process.env.PORT || 80)
+app.listen(port, function () {
+  console.log("Server listening on port 80");
 });
