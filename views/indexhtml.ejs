@@ -10,7 +10,13 @@
     <meta name="author" content="">
 
     <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,64 +26,95 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./style.css">
+
 
 </head>
 
 <body>
+
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>Start CRM</h1>
-        <br><br><br>
-        
-            <form action="http://localhost:8080/add?">
-                <b>Prenom:</b><input type="text" name="firstName" value="">
-                <b>Nom:</b>  <input type="text" name="lastName" value="">
-                <b>Email:</b> <input type="text" name="email" value="">
-                <b>Phone:</b> <input type="text" name="phone" value="">
-        <br><br>    
-                <input href="#about" class="btn btn-dark btn-lg" type="submit" value="valider">
-            </form>
-        </div> 
-
-            <br>
-            
-        </div>
+            <br> <br>
+            <h3>Ajouter une liste de nom</h3>
+             <div class="container"> 
+                <form action="/add?">
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <b>Prenom:</b> <br><input type="text" name="firstName" value="">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">    
+                        <b>Nom:</b> <br> <input type="text" name="lastName" value="">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">    
+                        <b>Email:</b> <br><input type="text" name="email" value="">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <b>Phone:</b> <br><input type="text" name="phone" value="">
+                    </div>
+                 </div>
+          <br><br>    
+                                  <input href="#about" class="btn btn-dark btn-lg" type="submit" value="Valider">
+                </form> 
     </header>
 
-    <!-- About -->
-    <section id="about" class="about">
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    
+<%
+  for (var i=0 ; i<clientList.length ; i++){
+%>
+<div class="text-center">
+      <%=i%>
+      <b><%=clientList[i].firstName%></b>
+      <b><%=clientList[i].lastName%></b>
+        <%=clientList[i].email%>
+        <%=clientList[i].phone%>
+    <section id="services" class="services bg-primary">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-        
-        <%
-        for (var i=0 ; i<clientList.length ; i++){
-        %>
-            <div class="text-center">
-
-                <b><%=clientList[i].firstName%></b>
-                <b><%=clientList[i].lastName%></b>
-                <%=clientList[i].email%>
-                <%=clientList[i].phone%>
-     
-            <form action="http://localhost:8080/delete?">
-                <input type="submit" class="btn btn-info btn-xs" value="Suppimer">
-            </form>
-            </div>
-   <br>
-
-        <%   
-        }
-        %>
-
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Liste de clients</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Profil</strong>
+                                </h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <a href="#" class="btn btn-light">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
                 </div>
+                <!-- /.col-lg-10 -->
             </div>
             <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
+  </div>
+<br>
+<%}%>
+
+    <!-- Callout -->
+    <aside class="callout">
+        <div class="text-vertical-center">
+            <h1>Vertically Centered Text</h1>
+        </div>
+    </aside>
+
 
 </body>
 
