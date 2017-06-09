@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <title>Projet CRM</title>
+</head>
+<body>
+
+  <h1>Start CRM</h1>
+    <br><br><br>  
+     
+    <h2> Ajouter une liste de nom </h2>
+      <form action="/add?">
+          <b>Prenom:</b><input type="text" name="firstName" value="">
+          <b>Nom:</b>  <input type="text" name="lastName" value="">
+          <b>Email:</b> <input type="text" name="email" value="">
+          <b>Phone:</b> <input type="text" name="phone" value="">
+          <br><br>    
+                        <input href="#about" class="btn btn-dark btn-lg" type="submit" value="Valider">
+      </form> 
+
+
+<br>
+    
+    
+     <h2> Modifier une liste de nom </h2>
+      <form action="/update?i=<%=i%>">
+          <b>Propriéter:</b>
+            <select name="select" onchange="updated(this)">
+              <option value="firstName">FirstName</option>
+              <option value="lastName">LastName</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+            </select>
+          <b>Valeur:</b><input type="text" name="value" value="">
+          <b>Position:</b><input type="text" name="i" value="">
+                          <input href="#about" class="btn btn-dark btn-lg" type="submit" value="Modifier">
+      </form> 
+
+<br>
+
+
+    <h2> Supprimer une liste de nom </h2>
+      <form action="/delete?i=<%=i%>">
+          <b>Position:</b><input type="text" name="i" value="">
+                          <input type="submit" class="btn btn-info btn-xs" value="Supprimer">
+      </form>
+
+    
+<br><br>
+
+
+<%
+  for (var i=0 ; i<clientList.length ; i++){
+%>
+  <div class="text-center">
+      <%=i%>
+      <b><%=clientList[i].firstName%></b>
+      <b><%=clientList[i].lastName%></b>
+        <%=clientList[i].email%>
+        <%=clientList[i].phone%>
+
+  </div>
+<br>
+<%}%>
+
+</body>
+</html>

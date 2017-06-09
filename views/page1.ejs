@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <title>Projet CRM</title>
+</head>
+<body>
+  
+    <h1>CRM</h1>
+
+<div class= "text-center">
+  <h1>Start CRM</h1>
+    <br><br><br>  
+      <form action="http://localhost:8080/add?">
+          <b>Prenom:</b><input type="text" name="firstName" value="">
+          <b>Nom:</b>  <input type="text" name="lastName" value="">
+          <b>Email:</b> <input type="text" name="email" value="">
+          <b>Phone:</b> <input type="text" name="phone" value="">
+          <br><br>    
+                        <input href="#about" class="btn btn-dark btn-lg" type="submit" value="valider">
+      </form>
+</div> 
+
+<br>
+
+<%
+  for (var i=0 ; i<clientList.length ; i++){
+%>
+  <div class="text-center">
+
+      <b><%=clientList[i].firstName%></b>
+      <b><%=clientList[i].lastName%></b>
+        <%=clientList[i].email%>
+        <%=clientList[i].phone%>
+      <form action="http://localhost:8080/delete?">
+        <input type="submit" class="btn btn-info btn-xs" value="Suppimer">
+    </form>
+  </div>
+<br>
+<%}%>
+
+<!--        <form> 
+        <input type="submit" name="<%=clientList[i].like%>" value="like">
+        </form>
+        <span id = <%=i%>> <%=clientList[i].quantite%></span>  
+		 
+		 <script>var spanJS = document.getElementById(<%=i%>);</script>
+     <script>spanJS.addEventListener('click', function(){ document.getElementById(<%=i%>).textContent++;})</script>-->
+
+<%}%>
+
+
+  
+</body>
+</html>
